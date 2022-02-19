@@ -16,8 +16,23 @@
 // document.getElementById("Next Question").onclick = nextQuestion;
 
 // var startQuiz = (askQuestions);
-    
+const startButton = document.getElementById('start-btn')
 
+startButton.addEventListener('click', startGame)
+
+function startGame() {
+startButton.classList.add('hide')
+questionContanerElement.classList.remove('hide')
+nextQuestion()
+}   
+
+function nextQuestion() {
+
+}
+
+function selectAnswer(){
+
+}
 var questions = [
     {question: "Javascript is a ______ -side programming language",
     answers: {
