@@ -12,14 +12,44 @@
 // THEN the game is over
 // WHEN the game is over
 // THEN I can save my initials and score
-var quizQuestions = document.getElementById("question");
-var timer = document.getElementById("timer-countdown");
-var startButton = document.getElementById('start-btn')
-startButton.addEventListener('click', startGame)
-const questionContainer = document.getElementById('question-container');
-const resultsContainer = document.getElementById('results');
-const answerButton = document.getElementById('btn-1', 'btn-2, btn-3', 'btn-4');
 
+
+
+// var nextQuestion = document.getElementById('quiz');
+
+// const quizContainer = documentgetElementbyId('quiz')
+// // Create a question variable with the question and answers defined within it. 
+// var answerScore = 0;
+// var askQuestions = document.querySelector("#card")
+// document.getElementById("#btn").onclick = startQuiz;
+// document.getElementById("Next Question").onclick = nextQuestion;
+
+// var startQuiz = (askQuestions);
+var startButton = document.getElementById('start-btn')
+// var gameTimerEl=document.querySelector("#timer-countdown");
+startButton.addEventListener('click', startGame)
+
+
+
+function startGame() {
+// startButton.classList.add('hide')
+// questionContainerElement.classList.remove('hide')
+nextQuestion(){
+    questionTitle.textContent - questions[]
+}
+}   
+//Create function to move to the next question.
+function nextQuestion(question) {
+    for(i=0; i<questions.length; i++)
+
+}
+
+function selectAnswer(){
+    if (correctAnswer === answers)
+    keepScore.
+    localStorage.
+
+}
 var questions = [
     {question: "Javascript is a ______ -side programming language",
     answers: {
@@ -62,26 +92,10 @@ var questions = [
     },
 ]
 
-function startGame() {
-    // startButton.classList.add('hide')
-    // questionContainerElement.classList.remove('hide')
-    
-    }
-       
-    //Create function to move to the next question.
-    function nextQuestion(question) {
-    
-    }
-    
-    function selectAnswer(){
-    
-    }
+var choiceA = document.getElementById("q")
 var askQuestions = function(questions) {
 
 }
 
 for(var i=0; i < questions.length; i++) {
     askQuestions(questions[i]);
-
-}
-
