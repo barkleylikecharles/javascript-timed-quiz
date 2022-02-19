@@ -2,25 +2,41 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+
+/* }
 html,
 body,
 .wrapper {
   height: 100%;
   margin: 0;
   padding: 0;
-}
+  display:flex; */
+ 
+  
+
 
 body {
-  font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: #7f8a96;
 }
 
+#btn-line{
+    display: vertical;
+}
+#view-high-score {
+    text-align:left;
+}
+
+#timer-countdown {
+    text-align: right;
+}
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
+  text-align: center;
 }
 
 header {
@@ -28,16 +44,34 @@ header {
   padding: 20px;
   padding-top: 0px;
   color: hsl(206, 17%, 28%);
+ 
+}
+
+#btn-line {
+    display:vertical;
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: green (0, 0%, 100%);
   border-radius: 5px;
   border-width: 1px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+  box-shadow: rgba(146, 192, 219, 0.15) 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  text-align:center;
 }
+
+.title {
+    text-align: center;
+
+}
+
+/* .hide {
+    display: none;
+} */
+/* .btn-correct {}
+
+.btn-wrong {} */

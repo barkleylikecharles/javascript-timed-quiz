@@ -1,15 +1,24 @@
-$(document).ready(function() {
-    $("#quiz").click(function () {
-        var nextQuestion = ("input[questions]").valueOf()
-    })
-}
+// $(document).ready(function() {
+//     $("#quiz").click(function () {
+//         var nextQuestion = ("input[questions]").valueOf()
+//     })
+// })
 //Create function to move to the next question.
 // var nextQuestion(Questions, generateQuiz);
 
+// var nextQuestion = document.getElementById('quiz');
 
-const quizContainer = documentgetElementbyId('quiz')
-// Create a question variable with the question and answers defined within it. 
-var Questions = [
+// const quizContainer = documentgetElementbyId('quiz')
+// // Create a question variable with the question and answers defined within it. 
+// var answerScore = 0;
+// var askQuestions = document.querySelector("#card")
+// document.getElementById("#btn").onclick = startQuiz;
+// document.getElementById("Next Question").onclick = nextQuestion;
+
+// var startQuiz = (askQuestions);
+    
+
+var questions = [
     {question: "Javascript is a ______ -side programming language",
     answers: {
         a: 'Client',
@@ -50,18 +59,28 @@ var Questions = [
         correctAnswer: 'd'
     },
 ]
+var askQuestions = function(questions) {
 
-function generateQuiz (questions, quizContainer, resultsContainer, submitButton) {
-
-    function askQuestions(questions, quizContainer) {
-
-    }
-    function revealResults(questions, quizContainer, resultsContainer){
-
-    }
-    askQuestions (questions, quizContainer);
-
-    submitButton.onclick = function(){
-        revealResults(questions, QuizContainer, resultsContainer);
-    }
 }
+
+for(var i=0; i < questions.length; i++) {
+    askQuestions(questions[i]);
+
+}
+
+// var nextQuestion = function(askQuestions);
+
+
+// function generateQuiz (questions, quizContainer, resultsContainer, submitButton) {
+
+//     function askQuestions(questions, quizContainer) {
+
+//     }
+//     function revealResults(questions, quizContainer, resultsContainer){
+
+//     }
+//     askQuestions (questions, quizContainer);
+
+//     submitButton.onclick = function(){
+//         revealResults(questions, quizContainer, resultsContainer);
+//     }

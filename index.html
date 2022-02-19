@@ -8,16 +8,32 @@
     <link rel="stylesheet" href="./assets/style.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Javascript Timed Quiz</h1>
-      </header>
-      <div class="card">
-        <div class="card-header">
-          <h2>Test your knowledge against your peers</h2>
-        </div>
-        <div class="card-body" 
+    <header>
+    <div class="view-high-score" >
+        <h3>View Highscores</h3>
     </div>
+    <div class="timer-countdown">
+        <h3>Timer</h3>
+    </div>
+    </header>
+    <div class="wrapper" id="card">
+        <div id="title">
+            <h1>Javascript Timed Quiz</h1>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h2>Test your knowledge against your peers</h2>
+        <div id="question-container" class="hide">
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-line">
+                <button class="btn">Answer 1</button>
+                <button class="btn">Answer 2</button>
+                <button class="btn">Answer 3</button>
+                <button class="btn">Answer 4</button>
+            </div>
+     
+        <!-- <div class="card-body">
+    </div> -->
         <div class="card-footer">
           <button id="quiz" class="btn">Start the Quiz</button>
         </div>
