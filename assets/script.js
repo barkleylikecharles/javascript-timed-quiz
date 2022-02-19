@@ -14,74 +14,95 @@
 // THEN I can save my initials and score
 var quizQuestions = document.getElementById("question");
 var timer = document.getElementById("timer-countdown");
-var startButton = document.getElementById('start-btn')
-startButton.addEventListener('click', startGame)
+var startButton = document.getElementById('start-btn');
+var questionIndex = 0;
 const questionContainer = document.getElementById('question-container');
 const resultsContainer = document.getElementById('results');
-const answerButton = document.getElementById('btn-1', 'btn-2, btn-3', 'btn-4');
+const answerButton = document.getElementById('answer-buttons');
 
 var questions = [
-    {question: "Javascript is a ______ -side programming language",
-    answers: {
-        a: 'Client',
-        b: 'Server',
-        c: 'Both',
-        d: 'Neither',
+    {
+        question: "Javascript is a ______ -side programming language",
+        answers: {
+            a: 'Client',
+            b: 'Server',
+            c: 'Both',
+            d: 'Neither',
+        },
+        correctAnswer: 'c'
     },
-    correctAnswer: 'c'
-    },  
-    
-    {question: "Which of the following will write the message “Hello DataFlair!” in an alert box?",
-    answers: {
-        a: 'alertBox("Hello DataFlair!")',
-        b: 'alert(Hello DataFlair!)',
-        c: 'msgAlert("Hello DataFlair!")',
-        d: 'alert("Hello DataFlair!")',
-    },
-    correctAnswer: 'd'
-},
 
-    {question: "How do you find the minimum of x and y using JavaScript?",
-    answers: {
-        a: 'min(x,y)',
-        b: 'Math.min(x,y)',
-        c: 'Math.min(xy)',
-        d: 'min(xy)',
+    {
+        question: "Which of the following will write the message “Hello DataFlair!” in an alert box?",
+        answers: {
+            a: 'alertBox("Hello DataFlair!")',
+            b: 'alert(Hello DataFlair!)',
+            c: 'msgAlert("Hello DataFlair!")',
+            d: 'alert("Hello DataFlair!")',
+        },
+        correctAnswer: 'd'
+    },
+
+    {
+        question: "How do you find the minimum of x and y using JavaScript?",
+        answers: {
+            a: 'min(x,y)',
+            b: 'Math.min(x,y)',
+            c: 'Math.min(xy)',
+            d: 'min(xy)',
         },
         correctAnswer: 'b'
     },
-    
-    {question: "Which JavaScript label catches all the values, except for the ones specified?",
-    answers: {
-        a: 'catch',
-        b: 'label',
-        c: 'try',
-        d: 'default',
+
+    {
+        question: "Which JavaScript label catches all the values, except for the ones specified?",
+        answers: {
+            a: 'catch',
+            b: 'label',
+            c: 'try',
+            d: 'default',
         },
         correctAnswer: 'd'
     },
 ]
+// function questions = {
+// for (i=0; i < questions.length; i++) {
+//     questions[i]();
+// }
 
-function startGame() {
+var startGame = function () {
     // startButton.classList.add('hide')
     // questionContainerElement.classList.remove('hide')
-    
-    }
-       
-    //Create function to move to the next question.
-    function nextQuestion(question) {
-    
-    }
-    
-    function selectAnswer(){
-    
-    }
-var askQuestions = function(questions) {
+    // arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
+    // setTimer()
+    console.log("startGame")
+    nextQuestion()
+}
+
+function nextQuestion() {
+    console.log("nextQuestion")
+    quizQuestions.innerHTML = questions[questionIndex].question; 
+    questionIndex++;
+    // for (var i = 0; i < questions.length; i++) {
+// console.log(questions[i].question)
+//         quizQuestions.innerHTML = questions[i].question;
+//     }
+    resetAnswers()
+    displayQuestion(arrayShuffledQuestions[questionContainer])
+}
+
+
+//Create function to move to the next question.
+
+
+function selectAnswer() {
 
 }
 
-for(var i=0; i < questions.length; i++) {
-    askQuestions(questions[i]);
+startButton.addEventListener('click', startGame)
+// var askQuestions = function(questions) {
 
-}
+// }
+
+
 
