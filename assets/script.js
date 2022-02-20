@@ -16,25 +16,26 @@ var quizQuestions = document.getElementById("question");
 var timerEl = document.getElementById("timer-countdown");
 var score=0;
 var highscore = localStorage.getItem("highscore");
-
-if (highscore ! == null){
-    if (score > highscore) {
-        localStorage.setItem("highscore", score);
-    }
-}else{
-    localStorage.setItem("highscore", score);)
-  }
+var quizAnswers = document.querySelector("btn-1, btn-2, btn-3, btn-4")
+// if (highscore ! == null){
+//     if (score > highscore) {
+//         localStorage.setItem("highscore", score);
+//     }
+// }else{
+//     localStorage.setItem("highscore", score);)
+// };
 var startButton = document.getElementById('start-btn');
 var questionIndex = 0;
-var quizAnswers = document.querySelector("answers")
+var answerIndex = 0;
+// var quizAnswers = document.querySelector("answers")
 const questionContainer = document.getElementById('question-container');
 const resultsContainer = document.getElementById('results');
-const answerButtonEl = document.getElementById('answer-buttons');
-//Create timer to countdown when startGame function called
+// const answerButtonEl = document.getElementById('answer-buttons');
+// //Create timer to countdown when startGame function called
 function countdown() {
     var timeLeft = 5;
 
-    var timeInterval = setIntervel(function(){
+    var timeInterval = setInterval(function(){
         if (timeLeft > 1) {
             timerEl.textContent= timeLeft + 'seconds remaining';
             timeLeft--;
@@ -48,17 +49,21 @@ function countdown() {
             displayMessage();
             }
         }, 1000);
-        }
-    
+        };
+        
+// const choiceA =document.querySelector("#btn-1"),  
+// const choiceB =document.querySelector("#btn-2"),
+// const choiceC =document.getElementById("btn-3"),
+// const choiceD =document.getElementById("#btn-4"),
 //Define questions and answers in an array
 var questions = [
     {
         question: "Javascript is a ______ -side programming language",
         answers: {
-            a: 'Client',
-            b: 'Server',
-            c: 'Both',
-            d: 'Neither',
+            ansA: 'Client',
+            ansB: 'Server',
+            ansC: 'Both',
+            ansD: 'Neither',
         },
         correctAnswer: 'c'
     },
@@ -66,10 +71,10 @@ var questions = [
     {
         question: "Which of the following will write the message “Hello DataFlair!” in an alert box?",
         answers: {
-            a: 'alertBox("Hello DataFlair!")',
-            b: 'alert(Hello DataFlair!)',
-            c: 'msgAlert("Hello DataFlair!")',
-            d: 'alert("Hello DataFlair!")',
+            ansA: 'alertBox("Hello DataFlair!")',
+            ansB: 'alert(Hello DataFlair!)',
+            ansC: 'msgAlert("Hello DataFlair!")',
+            ansD: 'alert("Hello DataFlair!")',
         },
         correctAnswer: 'd'
     },
@@ -77,10 +82,10 @@ var questions = [
     {
         question: "How do you find the minimum of x and y using JavaScript?",
         answers: {
-            a: 'min(x,y)',
-            b: 'Math.min(x,y)',
-            c: 'Math.min(xy)',
-            d: 'min(xy)',
+            ansA: 'min(x,y)',
+            ansB: 'Math.min(x,y)',
+            ansC: 'Math.min(xy)',
+            ansD: 'min(xy)',
         },
         correctAnswer: 'b'
     },
@@ -88,10 +93,10 @@ var questions = [
     {
         question: "Which JavaScript label catches all the values, except for the ones specified?",
         answers: {
-            a: 'catch',
-            b: 'label',
-            c: 'try',
-            d: 'default',
+            ansA: 'catch',
+            ansB: 'label',
+            ansC: 'try',
+            ansD: 'default',
         },
         correctAnswer: 'd'
     },
@@ -115,20 +120,28 @@ function nextQuestion() {
     console.log("nextQuestion")
     quizQuestions.innerHTML = questions[questionIndex].question; 
     questionIndex++;
+
+    quizAnswers.innerHTML = questions[answerIndex].ansA, ansB, ansC, ansD;
+    answerIndex++;
+    // anserchoiceA.textContent = qst.ansA;
+    // choiceB.textContent = qst.ansB;
+    // choiceC.textContent = qst.ansC;
+    // choiceD.textContent = qst.ansD;
+}
     // var answerbutton = document.getElementById('answer-buttons')
-    quizAnswers.innerHTML = questions[answerIndex].answers;
-    console.log(answers)
-()    // for (var i = 0; i < questions.length; i++) {
+//     quizAnswers.innerHTML = questions[answerIndex].answers;
+//     console.log(answers)
+// ()    // for (var i = 0; i < questions.length; i++) {
 // console.log(questions[i].question)
 //         quizQuestions.innerHTML = questions[i].question;
-//     }
-//Call all answers from the questions array to the container
- var nextAnswerSet
-        console.log("answers)")
+// //     }
+// //Call all answers from the questions array to the container
+//  var nextAnswerSet
+//         console.log("answers)")
     
-    resetAnswers()
-    displayQuestion(arrayShuffledQuestions[questionContainer])
-};
+//     resetAnswers()
+//     displayQuestion(arrayShuffledQuestions[questionContainer])
+;
 function results () {
     if (answers === nextQuestion.correctAnswer) {
         score++;
