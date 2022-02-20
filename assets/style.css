@@ -15,18 +15,22 @@ body,
   padding: 0;
   display:flex; */
  
-  
+ header {
+     justify-content:space-between;
+     display:flex;
+
+ } 
 
 
 body {
   background-color: #7f8a96;
 }
 
-#btn-line{
-    display: vertical;
+.answer-buttons {
+    display:grid;
+
 }
 #view-high-score {
-    text-align:left;
 }
 
 #timer-countdown {
@@ -48,7 +52,7 @@ header {
 }
 
 #btn-line {
-    display:vertical;
+    display:grid;
 }
 
 .card {

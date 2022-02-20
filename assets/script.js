@@ -13,12 +13,32 @@
 // WHEN the game is over
 // THEN I can save my initials and score
 var quizQuestions = document.getElementById("question");
-var timer = document.getElementById("timer-countdown");
+var timerEl = document.getElementById("timer-countdown");
 var startButton = document.getElementById('start-btn');
 var questionIndex = 0;
 const questionContainer = document.getElementById('question-container');
 const resultsContainer = document.getElementById('results');
 const answerButtonEl = document.getElementById('answer-buttons');
+
+function countdown() {
+    var timeLeft = 5;
+
+    var timeInterval = setIntervel(function(){
+        if (timeLeft > 1) {
+            timerEl.textContent= timeLeft + 'seconds remaining';
+            timeLeft--;
+        }
+        else if (timeLeft === 1) {
+            timerEl.textContent= timeLeft + "second remaining";
+            timeLeft--;
+        }else {
+            timerEl.textContent = "";
+            clearInterval(timeInterval);
+            displayMessage();
+            }
+        }, 1000);
+        }
+    
 
 var questions = [
     {
@@ -77,6 +97,7 @@ var startGame = function () {
     // setTimer()
     console.log("startGame")
     nextQuestion()
+    countdown();
 }
 
 function nextQuestion() {
@@ -84,13 +105,14 @@ function nextQuestion() {
     quizQuestions.innerHTML = questions[questionIndex].question; 
     questionIndex++;
     // var answerbutton = document.getElementById('answer-buttons')
-    answerButtonEl.innerText=index.answers[i].answer
+    answerButtonEl.innerText=index.answers[i].answers
     console.log(answers)
 ()    // for (var i = 0; i < questions.length; i++) {
 // console.log(questions[i].question)
 //         quizQuestions.innerHTML = questions[i].question;
 //     }
-    
+ var nextAnswerSet
+        console.log("answers)")
     
     resetAnswers()
     displayQuestion(arrayShuffledQuestions[questionContainer])
