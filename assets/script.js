@@ -14,12 +14,23 @@
 // THEN I can save my initials and score
 var quizQuestions = document.getElementById("question");
 var timerEl = document.getElementById("timer-countdown");
+var score=0;
+var highscore = localStorage.getItem("highscore");
+
+if (highscore ! == null){
+    if (score > highscore) {
+        localStorage.setItem("highscore", score);
+    }
+}else{
+    localStorage.setItem("highscore", score);)
+  }
 var startButton = document.getElementById('start-btn');
 var questionIndex = 0;
+var quizAnswers = document.querySelector("answers")
 const questionContainer = document.getElementById('question-container');
 const resultsContainer = document.getElementById('results');
 const answerButtonEl = document.getElementById('answer-buttons');
-
+//Create timer to countdown when startGame function called
 function countdown() {
     var timeLeft = 5;
 
@@ -39,7 +50,7 @@ function countdown() {
         }, 1000);
         }
     
-
+//Define questions and answers in an array
 var questions = [
     {
         question: "Javascript is a ______ -side programming language",
@@ -89,35 +100,41 @@ var questions = [
 // for (i=0; i < questions.length; i++) {
 //     questions[i]();
 // }
-
+//Start the game and move the the first questions in the array
 var startGame = function () {
     // startButton.classList.add('hide')
     // questionContainerElement.classList.remove('hide')
     // arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
     // setTimer()
-    console.log("startGame")
-    nextQuestion()
+    console.log("startGame");
+    nextQuestion();
     countdown();
 }
-
+//Call all the questions from the array to the question element in the html
 function nextQuestion() {
     console.log("nextQuestion")
     quizQuestions.innerHTML = questions[questionIndex].question; 
     questionIndex++;
     // var answerbutton = document.getElementById('answer-buttons')
-    answerButtonEl.innerText=index.answers[i].answers
+    quizAnswers.innerHTML = questions[answerIndex].answers;
     console.log(answers)
 ()    // for (var i = 0; i < questions.length; i++) {
 // console.log(questions[i].question)
 //         quizQuestions.innerHTML = questions[i].question;
 //     }
+//Call all answers from the questions array to the container
  var nextAnswerSet
         console.log("answers)")
     
     resetAnswers()
     displayQuestion(arrayShuffledQuestions[questionContainer])
 };
+function results () {
+    if (answers === nextQuestion.correctAnswer) {
+        score++;
+    }
 
+}
 
 //Create function to move to the next question.
 
