@@ -18,7 +18,7 @@ var startButton = document.getElementById('start-btn');
 var questionIndex = 0;
 const questionContainer = document.getElementById('question-container');
 const resultsContainer = document.getElementById('results');
-const answerButton = document.getElementById('answer-buttons');
+const answerButtonEl = document.getElementById('answer-buttons');
 
 var questions = [
     {
@@ -83,21 +83,26 @@ function nextQuestion() {
     console.log("nextQuestion")
     quizQuestions.innerHTML = questions[questionIndex].question; 
     questionIndex++;
-    // for (var i = 0; i < questions.length; i++) {
+    // var answerbutton = document.getElementById('answer-buttons')
+    answerButtonEl.innerText=index.answers[i].answer
+    console.log(answers)
+()    // for (var i = 0; i < questions.length; i++) {
 // console.log(questions[i].question)
 //         quizQuestions.innerHTML = questions[i].question;
 //     }
+    
+    
     resetAnswers()
     displayQuestion(arrayShuffledQuestions[questionContainer])
-}
+};
 
 
 //Create function to move to the next question.
 
 
-function selectAnswer() {
+// function selectAnswer() {
 
-}
+// }
 
 startButton.addEventListener('click', startGame)
 // var askQuestions = function(questions) {
