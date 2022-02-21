@@ -1,22 +1,13 @@
 // $(document).ready(function() {
 //     $("#quiz").click(function () {
 //         var nextQuestion = ("input[questions]").valueOf()
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and score
+
 var quizQuestions = document.getElementById("question");
 var timerEl = document.getElementById("timer-countdown");
 var score=0;
-var highscore = localStorage.getItem("highscore");
-var quizAnswers = document.querySelector("btn-1, btn-2, btn-3, btn-4")
+var highScore = localStorage.getItem("highscore");
+// var quizAnswers = document.getElementById("answers-buttons")
+
 // if (highscore ! == null){
 //     if (score > highscore) {
 //         localStorage.setItem("highscore", score);
@@ -37,7 +28,7 @@ function countdown() {
 
     var timeInterval = setInterval(function(){
         if (timeLeft > 1) {
-            timerEl.textContent= timeLeft + 'seconds remaining';
+            timerEl.textContent = timeLeft + 'seconds remaining';
             timeLeft--;
         }
         else if (timeLeft === 1) {
@@ -51,10 +42,10 @@ function countdown() {
         }, 1000);
         };
         
-// const choiceA =document.querySelector("#btn-1"),  
-// const choiceB =document.querySelector("#btn-2"),
-// const choiceC =document.getElementById("btn-3"),
-// const choiceD =document.getElementById("#btn-4"),
+var buttonA = document.getElementById("btn-1");
+var buttonB = document.getElementById("btn-2");
+var buttonC = document.getElementById("btn-3");
+var buttonD = document.getElementById("btn-4");
 //Define questions and answers in an array
 var questions = [
     {
@@ -65,7 +56,7 @@ var questions = [
             ansC: 'Both',
             ansD: 'Neither',
         },
-        correctAnswer: 'c'
+        correctAnswer: 'ansC'
     },
 
     {
@@ -76,7 +67,7 @@ var questions = [
             ansC: 'msgAlert("Hello DataFlair!")',
             ansD: 'alert("Hello DataFlair!")',
         },
-        correctAnswer: 'd'
+        correctAnswer: 'ansD'
     },
 
     {
@@ -87,7 +78,7 @@ var questions = [
             ansC: 'Math.min(xy)',
             ansD: 'min(xy)',
         },
-        correctAnswer: 'b'
+        correctAnswer: 'ansB'
     },
 
     {
@@ -98,7 +89,7 @@ var questions = [
             ansC: 'try',
             ansD: 'default',
         },
-        correctAnswer: 'd'
+        correctAnswer: 'ansD'
     },
 ]
 // function questions = {
@@ -109,7 +100,6 @@ var questions = [
 var startGame = function () {
     // startButton.classList.add('hide')
     // questionContainerElement.classList.remove('hide')
-    // arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
     // setTimer()
     console.log("startGame");
     nextQuestion();
@@ -121,13 +111,16 @@ function nextQuestion() {
     quizQuestions.innerHTML = questions[questionIndex].question; 
     questionIndex++;
 
-    quizAnswers.innerHTML = questions[answerIndex].ansA, ansB, ansC, ansD;
-    answerIndex++;
-    // anserchoiceA.textContent = qst.ansA;
-    // choiceB.textContent = qst.ansB;
-    // choiceC.textContent = qst.ansC;
-    // choiceD.textContent = qst.ansD;
+    function nextAnswerSet () {}
+    buttonA.innerHTML = quizQuestions.answers.ansA;
+    buttonB.innerHTML = quizQuestions.answers.ansB;
+    buttonC.innerHTML = quizQuestions.answers.ansC;
+    buttonD.innerHTML = quizQuestions.answers.ansD;
 }
+
+    // quizAnswers.innerHTML= questions[answerIndex].answers;
+    // answerIndex++;
+    
     // var answerbutton = document.getElementById('answer-buttons')
 //     quizAnswers.innerHTML = questions[answerIndex].answers;
 //     console.log(answers)
