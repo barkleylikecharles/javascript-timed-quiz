@@ -56,7 +56,7 @@ var questions = [
             ansC: 'Both',
             ansD: 'Neither',
         },
-        correctAnswer: 'ansC'
+        correctAnswer: 'Both'
     },
 
     {
@@ -67,7 +67,7 @@ var questions = [
             ansC: 'msgAlert("Hello DataFlair!")',
             ansD: 'alert("Hello DataFlair!")',
         },
-        correctAnswer: 'ansD'
+        correctAnswer: 'alert("Hello DataFlair!")'
     },
 
     {
@@ -78,7 +78,7 @@ var questions = [
             ansC: 'Math.min(xy)',
             ansD: 'min(xy)',
         },
-        correctAnswer: 'ansB'
+        correctAnswer: 'Math.min(x,y)'
     },
 
     {
@@ -89,7 +89,7 @@ var questions = [
             ansC: 'try',
             ansD: 'default',
         },
-        correctAnswer: 'ansD'
+        correctAnswer: 'default'
     },
 ]
 // function questions = {
@@ -107,15 +107,40 @@ var startGame = function () {
 }
 //Call all the questions from the array to the question element in the html
 function nextQuestion() {
-    console.log("nextQuestion")
-    quizQuestions.innerHTML = questions[questionIndex].question; 
-    questionIndex++;
+    if(questionIndex < questions.length) {
+        console.log("nextQuestion")
+        quizQuestions.innerHTML = questions[questionIndex].question; 
 
-    function nextAnswerSet () {}
-    buttonA.innerHTML = quizQuestions.answers.ansA;
-    buttonB.innerHTML = quizQuestions.answers.ansB;
-    buttonC.innerHTML = quizQuestions.answers.ansC;
-    buttonD.innerHTML = quizQuestions.answers.ansD;
+        buttonA.innerHTML = questions[questionIndex].answers.ansA
+        buttonA.addEventListener("click", checkAnswer)
+        buttonB.innerHTML = questions[questionIndex].answers.ansB
+        buttonB.addEventListener("click", checkAnswer)
+        buttonC.innerHTML = questions[questionIndex].answers.ansC
+        buttonC.addEventListener("click", checkAnswer)
+        buttonD.innerHTML = questions[questionIndex].answers.ansD
+        buttonD.addEventListener("click", checkAnswer)
+        questionIndex++;
+    } else {
+        alert("You finished the quiz!")
+
+
+
+        
+    }
+}
+function checkAnswer(event){
+    var userAnswer = event.target.textContent
+    console.log(userAnswer)
+    console.log(questions[questionIndex-1].correctAnswer)
+    if(userAnswer == questions[questionIndex-1].correctAnswer)
+    {
+        alert("Correct")
+    }
+    else {
+        alert("Wrong")
+        //deduct certain amount of time
+    }
+    nextQuestion()
 }
 
     // quizAnswers.innerHTML= questions[answerIndex].answers;
