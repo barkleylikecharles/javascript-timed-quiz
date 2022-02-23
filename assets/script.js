@@ -23,21 +23,23 @@ const questionContainer = document.getElementById('question-container');
 const resultsContainer = document.getElementById('results');
 // const answerButtonEl = document.getElementById('answer-buttons');
 // //Create timer to countdown when startGame function called
+var timeLeft = 240;
+
 function countdown() {
-    var timeLeft = 5;
+    // var timeLeft = 240;
 
     var timeInterval = setInterval(function(){
         if (timeLeft > 1) {
-            timerEl.textContent = timeLeft + 'seconds remaining';
+            timerEl.textContent = timeLeft + ' seconds remaining';
             timeLeft--;
         }
         else if (timeLeft === 1) {
-            timerEl.textContent= timeLeft + "second remaining";
+            timerEl.textContent= timeLeft + " second remaining";
             timeLeft--;
         }else {
             timerEl.textContent = "";
             clearInterval(timeInterval);
-            displayMessage();
+            displayMessage("You are all out of time");
             }
         }, 1000);
         };
@@ -92,15 +94,12 @@ var questions = [
         correctAnswer: 'default'
     },
 ]
-// function questions = {
-// for (i=0; i < questions.length; i++) {
-//     questions[i]();
+
+
+
 // }
 //Start the game and move the the first questions in the array
 var startGame = function () {
-    // startButton.classList.add('hide')
-    // questionContainerElement.classList.remove('hide')
-    // setTimer()
     console.log("startGame");
     nextQuestion();
     countdown();
@@ -125,7 +124,7 @@ function nextQuestion() {
 
 
 
-        
+
     }
 }
 function checkAnswer(event){
@@ -134,50 +133,30 @@ function checkAnswer(event){
     console.log(questions[questionIndex-1].correctAnswer)
     if(userAnswer == questions[questionIndex-1].correctAnswer)
     {
+        
+        document.getElementById("results").innerHTML = "Correct!"
         alert("Correct")
     }
     else {
-        alert("Wrong")
-        //deduct certain amount of time
+        alert("Wrong. 15 seconds will be deducted from your timer and final score.");
+        // timer = timer - 15;
+        // timerEl.innerHTML=timer;
+        //deduct certain amount of time from the clock
     }
     nextQuestion()
 }
 
-    // quizAnswers.innerHTML= questions[answerIndex].answers;
-    // answerIndex++;
-    
-    // var answerbutton = document.getElementById('answer-buttons')
-//     quizAnswers.innerHTML = questions[answerIndex].answers;
-//     console.log(answers)
-// ()    // for (var i = 0; i < questions.length; i++) {
-// console.log(questions[i].question)
-//         quizQuestions.innerHTML = questions[i].question;
-// //     }
-// //Call all answers from the questions array to the container
-//  var nextAnswerSet
-//         console.log("answers)")
-    
-//     resetAnswers()
-//     displayQuestion(arrayShuffledQuestions[questionContainer])
-;
-function results () {
+
+function highScore () {
     if (answers === nextQuestion.correctAnswer) {
         score++;
     }
 
 }
 
-//Create function to move to the next question.
-
-
-// function selectAnswer() {
-
-// }
 
 startButton.addEventListener('click', startGame)
-// var askQuestions = function(questions) {
 
-// }
 
 
 
