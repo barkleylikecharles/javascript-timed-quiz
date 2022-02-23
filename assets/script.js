@@ -95,9 +95,6 @@ var questions = [
     },
 ]
 
-
-
-// }
 //Start the game and move the the first questions in the array
 var startGame = function () {
     console.log("startGame");
@@ -133,7 +130,6 @@ function checkAnswer(event){
     console.log(questions[questionIndex-1].correctAnswer)
     if(userAnswer == questions[questionIndex-1].correctAnswer)
     {
-        
         document.getElementById("results").innerHTML = "Correct!"
         alert("Correct")
     }
