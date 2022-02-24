@@ -22,7 +22,8 @@ var answerIndex = 0;
 const questionContainer = document.getElementById('question-container');
 const resultsContainer = document.getElementById('results');
 const highScore = document.getElementById("highscore")
-let scoreListEl = document.querySelector("#score-list");
+var scoreListEl = document.querySelector("#score-list")
+let scoreAreaEl = document.querySelector("#score-container");
 // const answerButtonEl = document.getElementById('answer-buttons');
 // //Create timer to countdown when startGame function called
 var timeLeft = 180;
@@ -120,6 +121,7 @@ function nextQuestion() {
         questionIndex++;
     } else {
         alert("You finished the quiz!")
+        displayScore();
     // function storeHighScore
     
 
@@ -147,48 +149,21 @@ function checkAnswer(event){
     }
     // nextQuestion()
 }
+function saveScore( {
+
+})
+
+var saveScores = function() {
+    localStorage.setItem("timeLeft", JSON.stringify(timeLeft));
+}
 
 
-// function addScore(event) {
-   
-//     let init = initialsInput.value.toUpperCase();
-//     scoreList.push({ initials: init, score: timeLeft });
 
-//     // sort scores
-//     scoreList = scoreList.sort((a, b) => {
-//         if (a.score < b.score) {
-//           return 1;
-//         } else {
-//           return -1;
-//         }
-//       });
+
+
+
     
-//     scoreListEl.innerHTML="";
-//     for (let i = 0; i < scoreList.length; i++) {
-//         let li = document.createElement("li");
-//         li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
-//         scoreListEl.append(li);
-//     }
 
-//     // Add to local storage
-//     storeScores();
-//     displayScores();
-// }
-
-// function storeScores() {
-//     localStorage.setItem("scoreList", JSON.stringify(scoreList));
-// }
-
-// function displayScores() {
-//     // Get stored scores from localStorage
-//     // Parsing the JSON string to an object
-//     let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
-
-//     // If scores were retrieved from localStorage, update the scorelist array to it
-//     if (storedScoreList !== null) {
-//         scoreList = storedScoreList;
-//     }
-// }
 
 
 startButton.addEventListener('click', startGame)
