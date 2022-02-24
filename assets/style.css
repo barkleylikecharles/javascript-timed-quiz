@@ -54,10 +54,12 @@ body {
 #btn-4{
   padding:20px 100px;
 }
-
+#card-footer{
+  text-align: center;
+}
 .btn {
   padding: 15px 45px;
-  text-align: center
+  -ms-flex-align: center;
 }
 .card {
   background-color: white;

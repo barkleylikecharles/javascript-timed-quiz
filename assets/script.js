@@ -4,8 +4,8 @@
 
 var quizQuestions = document.getElementById("question");
 var timerEl = document.getElementById("timer-countdown");
-var score=0;
-var highScore = localStorage.getItem("highscore");
+// var score=0;
+// var highScore = localStorage.getItem("highscore");
 // var quizAnswers = document.getElementById("answers-buttons")
 
 // if (highscore ! == null){
@@ -21,9 +21,11 @@ var answerIndex = 0;
 // var quizAnswers = document.querySelector("answers")
 const questionContainer = document.getElementById('question-container');
 const resultsContainer = document.getElementById('results');
+const highScore = document.getElementById("highscore")
+let scoreListEl = document.querySelector("#score-list");
 // const answerButtonEl = document.getElementById('answer-buttons');
 // //Create timer to countdown when startGame function called
-var timeLeft = 240;
+var timeLeft = 180;
 
 function countdown() {
     // var timeLeft = 240;
@@ -118,8 +120,8 @@ function nextQuestion() {
         questionIndex++;
     } else {
         alert("You finished the quiz!")
-
-
+    // function storeHighScore
+    
 
 
     }
@@ -131,27 +133,66 @@ function checkAnswer(event){
     if(userAnswer == questions[questionIndex-1].correctAnswer)
     {
         document.getElementById("results").innerHTML = "Correct!"
-        alert("Correct")
+        nextQuestion();
     }
     else {
+        timeLeft = timeLeft - 15;
+        document.getElementById("results").innerHTML = "Wrong. 15 seconds will be deducted from your timer and final score."
         alert("Wrong. 15 seconds will be deducted from your timer and final score.");
         // timer = timer - 15;
+        // displayMessage.getElementById("timer-countdown");
         // timerEl.innerHTML=timer;
         //deduct certain amount of time from the clock
+        nextQuestion();
     }
-    nextQuestion()
+    // nextQuestion()
 }
 
 
-function highScore () {
-    if (answers === nextQuestion.correctAnswer) {
-        score++;
-    }
+// function addScore(event) {
+   
+//     let init = initialsInput.value.toUpperCase();
+//     scoreList.push({ initials: init, score: timeLeft });
 
-}
+//     // sort scores
+//     scoreList = scoreList.sort((a, b) => {
+//         if (a.score < b.score) {
+//           return 1;
+//         } else {
+//           return -1;
+//         }
+//       });
+    
+//     scoreListEl.innerHTML="";
+//     for (let i = 0; i < scoreList.length; i++) {
+//         let li = document.createElement("li");
+//         li.textContent = `${scoreList[i].initials}: ${scoreList[i].score}`;
+//         scoreListEl.append(li);
+//     }
+
+//     // Add to local storage
+//     storeScores();
+//     displayScores();
+// }
+
+// function storeScores() {
+//     localStorage.setItem("scoreList", JSON.stringify(scoreList));
+// }
+
+// function displayScores() {
+//     // Get stored scores from localStorage
+//     // Parsing the JSON string to an object
+//     let storedScoreList = JSON.parse(localStorage.getItem("scoreList"));
+
+//     // If scores were retrieved from localStorage, update the scorelist array to it
+//     if (storedScoreList !== null) {
+//         scoreList = storedScoreList;
+//     }
+// }
 
 
 startButton.addEventListener('click', startGame)
+
 
 
 
