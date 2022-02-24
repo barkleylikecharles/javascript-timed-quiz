@@ -121,7 +121,7 @@ function nextQuestion() {
         questionIndex++;
     } else {
         alert("You finished the quiz!")
-        displayScore();
+        toHighscoreList();
     // function storeHighScore
     
 
@@ -149,14 +149,23 @@ function checkAnswer(event){
     }
     // nextQuestion()
 }
-function saveScore( {
 
-})
 
-var saveScores = function() {
-    localStorage.setItem("timeLeft", JSON.stringify(timeLeft));
-}
+var playerName;
+var playerScore;
+var gameResult = {};
+var highscoreList = [];
 
+
+function toHighscoreList() {
+    playerName = $('#nameTag').text();  
+    playerScore = timeLeft.length;   
+
+    gameResult = {player: playerName, score: playerScore};
+    highscoreList[highscoreList.length] = gameResult;
+
+    $('#score1').text(highscoreList[0]);
+};
 
 
 
