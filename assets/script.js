@@ -121,7 +121,7 @@ function nextQuestion() {
         questionIndex++;
     } else {
         alert("You finished the quiz!")
-        toHighscoreList();
+        addScore();
     // function storeHighScore
     
 
@@ -141,39 +141,32 @@ function checkAnswer(event){
         timeLeft = timeLeft - 15;
         document.getElementById("results").innerHTML = "Wrong. 15 seconds will be deducted from your timer and final score."
         alert("Wrong. 15 seconds will be deducted from your timer and final score.");
-        // timer = timer - 15;
-        // displayMessage.getElementById("timer-countdown");
-        // timerEl.innerHTML=timer;
-        //deduct certain amount of time from the clock
         nextQuestion();
     }
     // nextQuestion()
 }
 
 
-var playerName;
-var playerScore;
-var gameResult = {};
-var highscoreList = [];
+var savedScoreList = []
 
+function addScore(event) {
+    event.preventDefault();
 
-function toHighscoreList() {
-    playerName = $('#nameTag').text();  
-    playerScore = timeLeft.length;   
+    var finalScore = timeLeft;
+    var inputInitials = document.querySelector("input[name='input-initials']").value;
 
-    gameResult = {player: playerName, score: playerScore};
-    highscoreList[highscoreList.length] = gameResult;
+    var savedScore = {
+        initials: inputInitials,
+        score: finalScore
+    }
+    this.reset();
+    savedScore(savedScore);
+}
 
-    $('#score1').text(highscoreList[0]);
-};
-
-
-
-
-
-    
-
-
+function saveScore(savedScore) {
+    savedScoreList.push(savedScore)
+    localStorage.setItem("savedScore", JSON.stringify(savedScoreList))
+}
 
 startButton.addEventListener('click', startGame)
 
