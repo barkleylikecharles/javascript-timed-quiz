@@ -31,8 +31,8 @@ function countdown() {
             document.getElementById("results")= innerHTML = "You have run out of time!"
             }
         }, 1000);
-        };
-        
+    }
+ //Define answer buttons to utilize when looping through questions       
 var buttonA = document.getElementById("btn-1");
 var buttonB = document.getElementById("btn-2");
 var buttonC = document.getElementById("btn-3");
@@ -164,7 +164,5 @@ function savedScore(savedScore) {
 
 startButton.addEventListener('click', startGame)
 
-
-
-
+}
 

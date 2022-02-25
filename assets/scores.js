@@ -16,6 +16,6 @@ function savedScore(savedScore) {
 
 getHighScores();
 
-startButton.addEventListener('click', getHighScores)
+scoreButton.addEventListener('click', getHighScores)
 
 
