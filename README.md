@@ -1,4 +1,19 @@
-# javascript-timed-quiz
+# Javascript Timed Quiz
+
+## Installation
+Updated code can be found at 
+
+## Usage
+Take this quiz to test your javascript skills. 
+
+## Credits  
+Project Completed by Nicole Barkley. [GitHub Profile] (https://github.com/barkleylikecharles)
+
+## Website
+[Live at] (https://barkleylikecharles.github.io/javascript-timed-quiz/)
+
+## Screenshot
+<img width="1061" alt="Screen Shot 2022-02-25 at 12 35 16 AM" src="https://user-images.githubusercontent.com/97490354/155660409-6ae3c6b8-3c6d-441b-8be6-18a3015d2209.png">
 
 ## License
 
