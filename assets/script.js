@@ -32,7 +32,7 @@ function countdown() {
             }
         }, 1000);
     }
- //Define answer buttons to utilize when looping through questions       
+ //Define answer buttons to utilize when looping through       
 var buttonA = document.getElementById("btn-1");
 var buttonB = document.getElementById("btn-2");
 var buttonC = document.getElementById("btn-3");
@@ -107,7 +107,7 @@ function nextQuestion() {
         questionIndex++;
     } else {
         document.getElementById("results").innerHTML="You finished the quiz!"
-        addScore()
+    
     // function storeHighScore
     
 
@@ -139,7 +139,7 @@ function addScore(event) {
     // event.preventDefault();
 
     var finalScore = timeLeft;
-    var inputInitials = document.querySelector("initials[name='input-initials']").value;
+    var inputInitials = document.querySelector("input[name='input-initials']");
 
     var savedScore = {
         initials: inputInitials,
@@ -158,11 +158,11 @@ function getHighScores() {
     });
 
 function savedScore(savedScore) {
-    highScoreList.push(savedScore)
+    highScoreList.push(savedScore)}
     localStorage.setItem("savedScore", JSON.stringify(highScoreList))
 }
 
 startButton.addEventListener('click', startGame)
 
-}
+
 
