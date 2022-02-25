@@ -1,6 +1,3 @@
-// $(document).ready(function() {
-//     $("#quiz").click(function () {
-//         var nextQuestion = ("input[questions]").valueOf()
 
 var quizQuestions = document.getElementById("question");
 var timerEl = document.getElementById("timer-countdown");
@@ -13,8 +10,8 @@ const resultsContainer = document.getElementById('results');
 const highScore = document.getElementById("highscore")
 var scoreListEl = document.querySelector("#score-list")
 let scoreAreaEl = document.querySelector("#score-container");
-// const answerButtonEl = document.getElementById('answer-buttons');
-// //Create timer to countdown when startGame function called
+
+//Start timer and saved time remaining as variable for scoring later
 var timeLeft = 180;
 
 function countdown() {
@@ -31,7 +28,7 @@ function countdown() {
         }else {
             timerEl.textContent = "";
             clearInterval(timeInterval);
-            displayMessage("You are all out of time");
+            document.getElementById("results")= innerHTML = "You have run out of time!"
             }
         }, 1000);
         };
@@ -109,14 +106,15 @@ function nextQuestion() {
         buttonD.addEventListener("click", checkAnswer)
         questionIndex++;
     } else {
-        alert("You finished the quiz!")
-        // addScore();
+        document.getElementById("results").innerHTML="You finished the quiz!"
+        addScore()
     // function storeHighScore
     
 
 
     }
 }
+//Check the user's answer against the correct answer
 function checkAnswer(event){
     var userAnswer = event.target.textContent
     console.log(userAnswer)
@@ -129,20 +127,19 @@ function checkAnswer(event){
     else {
         timeLeft = timeLeft - 15;
         document.getElementById("results").innerHTML = "Wrong. 15 seconds will be deducted from your timer and final score."
-        alert("Wrong. 15 seconds will be deducted from your timer and final score.");
         nextQuestion();
     }
-    // nextQuestion()
+
 }
 
-
+//Store all high scores in local storage using timeLeft and input initials
 var highScoreList= []
 
 function addScore(event) {
     // event.preventDefault();
 
     var finalScore = timeLeft;
-    var inputInitials = document.querySelector("input[name='input-initials']").value;
+    var inputInitials = document.querySelector("initials[name='input-initials']").value;
 
     var savedScore = {
         initials: inputInitials,
@@ -159,7 +156,7 @@ function getHighScores() {
         litag.textContent=score.initials+ "-" + score.score
         
     });
-}
+
 function savedScore(savedScore) {
     highScoreList.push(savedScore)
     localStorage.setItem("savedScore", JSON.stringify(highScoreList))
