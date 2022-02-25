@@ -4,21 +4,10 @@
 
 var quizQuestions = document.getElementById("question");
 var timerEl = document.getElementById("timer-countdown");
-// var score=0;
-// var highScore = localStorage.getItem("highscore");
-// var quizAnswers = document.getElementById("answers-buttons")
-
-// if (highscore ! == null){
-//     if (score > highscore) {
-//         localStorage.setItem("highscore", score);
-//     }
-// }else{
-//     localStorage.setItem("highscore", score);)
-// };
 var startButton = document.getElementById('start-btn');
 var questionIndex = 0;
 var answerIndex = 0;
-// var quizAnswers = document.querySelector("answers")
+
 const questionContainer = document.getElementById('question-container');
 const resultsContainer = document.getElementById('results');
 const highScore = document.getElementById("highscore")
@@ -121,7 +110,7 @@ function nextQuestion() {
         questionIndex++;
     } else {
         alert("You finished the quiz!")
-        addScore();
+        // addScore();
     // function storeHighScore
     
 
@@ -147,10 +136,10 @@ function checkAnswer(event){
 }
 
 
-var savedScoreList = []
+var highScoreList= []
 
 function addScore(event) {
-    event.preventDefault();
+    // event.preventDefault();
 
     var finalScore = timeLeft;
     var inputInitials = document.querySelector("input[name='input-initials']").value;
@@ -162,10 +151,18 @@ function addScore(event) {
     this.reset();
     savedScore(savedScore);
 }
-
-function saveScore(savedScore) {
-    savedScoreList.push(savedScore)
-    localStorage.setItem("savedScore", JSON.stringify(savedScoreList))
+function getHighScores() {
+    var highScores=JSON.parse(window.localStorage.getItem("savedScore")) || []
+    highScores.sort(function(a,b){ return b.score-a.score} )
+    highScores.forEach(score => {
+        var litag=document.createElement("li")
+        litag.textContent=score.initials+ "-" + score.score
+        
+    });
+}
+function savedScore(savedScore) {
+    highScoreList.push(savedScore)
+    localStorage.setItem("savedScore", JSON.stringify(highScoreList))
 }
 
 startButton.addEventListener('click', startGame)
